@@ -1,0 +1,561 @@
+Delivered-To: tneerajvenkatasai@gmail.com
+Received: by 2002:a05:6358:7e41:b0:1ff:e199:8260 with SMTP id p1csp2408185rwm;
+        Tue, 19 Aug 2025 17:34:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE4z6TffuSkOuSQJeZVOLTeXR5MQiobKdqpnNXtOkZgtemWS5oCo8d+ZRMfL9o061hZzkjz
+X-Received: by 2002:a17:90b:2f48:b0:323:7e80:8818 with SMTP id 98e67ed59e1d1-324e1423e41mr1345219a91.37.1755650067331;
+        Tue, 19 Aug 2025 17:34:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1755650067; cv=none;
+        d=google.com; s=arc-20240605;
+        b=igW73S5mGSI3bCicKfrTEFW/yK8V0BD0Joqd1yo2QN3yxZ6vfJBQnyUIVQLT2U450I
+         MZWxH+gLZM6aD9FS6jH8W0kqA/TUnUzYdVDGV1X1BBNywUs69RTy97XzJUihjFK91xWX
+         XjEFVo9v+W9/bfD2+fzAWm7LI+F+6tQah4RAGv/mSbiwWZup4j0RQACVeGeII+AjtbSg
+         Oxnby6bTBQRjTFhGUcEW61lzgdAPDGJfqJnKu8bRtIb1e4BmddUodP//dTt8IZNpGPhl
+         LrQutwVIHq5/kWOBawwnV/ArePLWlIzf1Pqflpsib/GlpdT6jhrGy75DIYA3n8C3LtuZ
+         9yiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=LdRNhDoK8GqhanPcMkfOPf3rMRrkFsz9q63RQWKmhSM=;
+        fh=iTuo7395cDujrWls3Q4VdDZE2iq7OzcW8uzQBiitT50=;
+        b=Qyx2wx82pP/MLMkFHzJfMEsH7n+ZsRShtXosEKu5ghtcHJYbvFZ/yO7XH9S5oO4a3f
+         bvyPgsz6XQ127JOWjzkOOpExLaTUBQKOB3PWHWMyP+Ju1kygYeCLDPcnIitZIWBdkKOK
+         5a2TvNEtK0afy0VYEukhj6hG/DG7rJFCvh4TgPxanhvf0dtuxLaVu6qWqWdKXAEwrjVN
+         ZQbK4itGMWTQ/oV2gHoSydkt9moL+f2hdpE1lL3g34pFKISrFabNjMKm9Js2EHtNRsix
+         bWnhYzyFyzFI+ovs77ivMfANBqg5h7IBKsiQX9qNJ1NRjA07mi8YUpkiNWXfJ1ApUQLh
+         Brug==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@snapchat.com header.s=m1 header.b=MGG+eIpz;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=MVtQj1T+;
+       spf=pass (google.com: domain of bounces+5086036-5ef2-tneerajvenkatasai=gmail.com@mail.snapchat.com designates 167.89.1.139 as permitted sender) smtp.mailfrom="bounces+5086036-5ef2-tneerajvenkatasai=gmail.com@mail.snapchat.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=snapchat.com
+Return-Path: <bounces+5086036-5ef2-tneerajvenkatasai=gmail.com@mail.snapchat.com>
+Received: from o1.mail.snapchat.com (o1.mail.snapchat.com. [167.89.1.139])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-b4764123849si568345a12.1461.2025.08.19.17.34.26
+        for <tneerajvenkatasai@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 Aug 2025 17:34:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+5086036-5ef2-tneerajvenkatasai=gmail.com@mail.snapchat.com designates 167.89.1.139 as permitted sender) client-ip=167.89.1.139;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@snapchat.com header.s=m1 header.b=MGG+eIpz;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=MVtQj1T+;
+       spf=pass (google.com: domain of bounces+5086036-5ef2-tneerajvenkatasai=gmail.com@mail.snapchat.com designates 167.89.1.139 as permitted sender) smtp.mailfrom="bounces+5086036-5ef2-tneerajvenkatasai=gmail.com@mail.snapchat.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=snapchat.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=snapchat.com;
+	h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+	to:cc:content-type:date:feedback-id:from:subject:to;
+	s=m1; bh=LdRNhDoK8GqhanPcMkfOPf3rMRrkFsz9q63RQWKmhSM=;
+	b=MGG+eIpzepPs/MfrYZtMMSG7uFAiAgVFmdAvOOPOdEHS8IlgUbGsOQ1awkDn+Q+uIvqZ
+	k1FZYGmRdJknupWk5x3cXZxnKxFXhOV0yMdRKu4NONX77v4BOtYGy51OUQ4tdv0MjkKfgA
+	bdro/an6fLXP+AFrlhPU8Ahasv7hqPyCE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+	to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; bh=LdRNhDoK8GqhanPcMkfOPf3rMRrkFsz9q63RQWKmhSM=;
+	b=MVtQj1T+YtXifjdDZ8oGQDAA2/js/zn/4WkkHs4KSd2M9sdl1F4fqgVLeFJokFplspcr
+	8RsV22df8/kcZFqrXCPMvNydrDM5UR5Bb2wJMkIgjr+cyPXQojI89VL9fX3lJ21/4FTDuT
+	c5uaz5a7MffrtHjd1T8J3p/eUGLiHp2Os=
+Received: by recvd-5f4d8d6f66-mzrh6 with SMTP id recvd-5f4d8d6f66-mzrh6-1-68A51540-D
+	2025-08-20 00:22:24.244260463 +0000 UTC m=+6594738.589531449
+Received: from NTA4NjAzNg (unknown)
+	by geopod-ismtpd-12 (SG) with HTTP
+	id Exy_2u_6S1qCwFWuZI5Erg
+	Wed, 20 Aug 2025 00:22:24.241 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Wed, 20 Aug 2025 00:34:26 +0000 (UTC)
+From: Team Snapchat <no_replysnap@chat.com>
+Mime-Version: 1.0
+Message-ID: <Exy_2u_6S1qCwFWuZI5Erg@geopod-ismtpd-12>
+Subject: View your Snapchat messages!
+X-SG-EID: 
+ =?us-ascii?Q?u001=2ENk4spDgCPTkiaqJ1ovlm5MtMmZzpj1d5vi+z+137LMsUpl9s8ruL7JYkQ?=
+ =?us-ascii?Q?TYUomnsP84gvDD2R0MTSsNjOuhCj0Q88EAuGQWf?=
+ =?us-ascii?Q?brld01NoYhO9NpNn01j+29ccmicTgwcmP0T2nq7?=
+ =?us-ascii?Q?LE=2Fh85hw5gaRGpZifLN8C1ASqtYzLHnyTUERGba?=
+ =?us-ascii?Q?xmfaUKl3H4g1pEtqxdpoGYG4dCFAGN0WK=2FwyhzI?=
+ =?us-ascii?Q?T2YklsgiNc+0LZ5aeVrsH1O2+zLbf8DmF+U6zEM?= =?us-ascii?Q?PMYZ?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3Bi4JWiFwTVCwj0ybyYH5ClYWqF1TlkmIuIiSK?=
+ =?us-ascii?Q?kbRvBd57yqT6D0+1wuJUs72yTT3uEfuKpWyZKpX?=
+ =?us-ascii?Q?keCrmUiNqRKygj2SWorJlWhOWVOnU7MXX1pdc0k?=
+ =?us-ascii?Q?jvA9SUYNhCs1QJjGdtz3Coi=2F+3hOuuEmjkbRX=2F4?=
+ =?us-ascii?Q?uPF7RLyZiMbDOa1GL3L96fMPvJkqj0OKOcBtdF0?=
+ =?us-ascii?Q?LUSF1MlS4QoxyiViJcq42c=3D?=
+To: tneerajvenkatasai@gmail.com
+X-Entity-ID: u001.+tzwzVnz5AJRahC5F0NFtw==
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"https://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+  <title>Snap</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" =
+/>
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0 " />
+  <meta name=3D"format-detection" content=3D"telephone=3Dno address=3Dno" /=
+>
+  <meta name=3D"color-scheme" content=3D"light dark">
+  <meta name=3D"supported-color-schemes" content=3D"light dark">
+  <style type=3D"text/css">
+    body {
+      margin: 0 auto;
+      padding: 0;
+      -webkit-text-size-adjust: 100% !important;
+      -ms-text-size-adjust: 100% !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
+    img {
+      border: 0 !important;
+      outline: none !important;
+    }
+    p {
+      Margin: 0px !important;
+      Padding: 0px !important;
+    }
+    table {
+      border-collapse: collapse;
+      mso-table-lspace: 0px;
+      mso-table-rspace: 0px;
+    }
+    .addressLink {
+      text-decoration: none !important;
+    }
+    td, a, span {
+      border-collapse: collapse;
+      mso-line-height-rule: exactly;
+    }
+    .ExternalClass * {
+      line-height: 100%;
+    }
+    .em_defaultlink a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .em_defaultlink2 a {
+      color: inherit;
+      text-decoration: underline;
+    }
+    .em_g_img+div {
+      display: none;
+    }
+    a[x-apple-data-detectors], u+.em_body a, #MessageViewBody a {
+      color: inherit;
+      text-decoration: none;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+    .em_hide_desk {
+      display: none !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .yellowBG {
+        background-color: #fffc00 !important;
+      }
+      .blackBG {
+        background-color: #1f1f1f !important;
+      }
+      .greyBG {
+        background-color: #2C2C2C !important;
+      }
+      .btnCTA {
+        background-color: #1f1f1f !important;
+        color: #fffc00 !important;
+      }
+      .fontDark {
+        color: #ffffff !important;
+      }
+      .CTAfontDark {
+        color: #000000 !important;
+      }
+      .fontLight {
+        color: #000000 !important;
+      }
+      .fontFooter {
+        color: #535353 !important;
+      }
+    }
+    [data-ogsc] .yellowBG {
+      background-color: #fffc00 !important;
+    }
+    [data-ogsc] .blackBG {
+      background-color: #1f1f1f !important;
+    }
+    [data-ogsc] .greyBG {
+      background-color: #535353 !important;
+    }
+    [data-ogsc] .btnCTA {
+      background-color: #1f1f1f !important;
+      color: #fffc00 !important;
+    }
+    [data-ogsc] .fontDark {
+      color: #ffffff !important;
+    }
+    [data-ogsc] .fontLight {
+      color: #ffffff !important;
+    }
+    :root {
+      color-scheme: light dark;
+      supported-color-schemes: light dark;
+    }
+    .
+  </style>
+  <style>
+    @font-face {
+      font-family: 'Graphik-Regular';
+      src: url('https://images.emailaptitude.com/Snapchat/Fonts/Graphik-Reg=
+ular.otf');
+      font-weight: normal !important;
+      font-style: normal !important;
+      mso-font-alt: 'Arial'
+    }
+  </style>
+</head>
+
+<body class=3D"em_body" style=3D"margin:0px auto; padding:0px;" bgcolor=3D"=
+#ffffff">
+
+<!-- =3D=3D preview text =3D=3D -->
+<div dir=3D"ltr" style=3D"display: none; max-height: 0px; overflow: hidden;=
+">
+  You have unread messages waiting on Snapchat.
+</div>
+
+<!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+<div style=3D"display: none; max-height: 0px; overflow: hidden;"> &nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp; </div>
+
+<!-- =3D=3D Header Section =3D=3D -->
+
+<table align=3D"center" width=3D"600" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" style=3D"width:600px;">
+  <tr>
+    <td align=3D"center" valign=3D"top"><table align=3D"center" width=3D"60=
+0" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"width:600px; "=
+>
+      <tr>
+        <td class=3D"mobile_hide" align=3D"center" valign=3D"top" dir=3D"lt=
+r" style=3D""><img class=3D"em_full_image" src=3D"https://cf-st.sc-cdn.net/=
+d/cTpNdvCPJ0JO2m6GiLwy6?bo=3DEg0aABoAMgEESAJQCGAB&uc=3D8" width=3D"600" bor=
+der=3D"0" style=3D"display:block; max-width:600px; " alt=3D"ghost icon" /><=
+/td>
+      </tr>
+      <tr>
+        <td class=3D"mobile_show" align=3D"center" valign=3D"top" dir=3D"lt=
+r" style=3D"mso-hide:all;display:none;max-height:0px;overflow:hidden;">
+          <img class=3D"em_full_image " src=3D"https://cf-st.sc-cdn.net/d/y=
+yGnKeC6xQuAKZXBkA09C?bo=3DEg0aABoAMgEESAJQCGAB&uc=3D8" width=3D"600" border=
+=3D"0" style=3D"display:block; max-width:600px; " alt=3D"ghost icon" />
+        </td>
+      </tr>
+      <tr>
+        <td style=3D"height:10px;line-height:0px;font-size:0px;" class=3D"b=
+lackBG" height=3D"50"></td>
+      </tr>
+      <tr>
+        <td align=3D"center" valign=3D"top">
+          <table class=3D"blackBG" bgcolor=3D"#ffffff" width=3D"500" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+            <tr>
+              <td><div>
+                <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" ali=
+gn=3D"center">
+                  <tr>
+                    <td dir=3D"ltr" align=3D"center" valign=3D"top" class=
+=3D"fontDark" style=3D"font-family:'AvenirLTPro-Heavy', Helvetica, Roboto, =
+Arial, sans-serif; font-size:38px; line-height:48px; color: #000000; font-w=
+eight:500; padding-top: 35px;padding-bottom: 5px; padding-left: 45px; paddi=
+ng-right: 45px;">You have unread messages waiting on Snapchat.</td>
+                  </tr>
+                </table>
+              </div></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=3D"3" valign=3D"middle" align=3D"center" height=3D"80" =
+style=3D"padding: 20px">
+          <a class=3D"CTAfontDark" style=3D"cursor: pointer !important; bor=
+der: 0; background-color: #000000 !important; padding: 14px 32px; font-size=
+:14px; font-weight:600; border-radius:50px; font-family:'Avenir', Helvetica=
+, Roboto, Arial, sans-serif; color: #F6F6F6 !important; text-decoration: no=
+ne" href=3D"https://click.snapchat.com/aVHG?ref=3Dunread_messages_reminder_=
+v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_web_dp=3Dhttps%3A%2F=
+%2Fwww.snapchat.com%2Fweb%2F">View now</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=3D"3" valign=3D"top" align=3D"center" style=3D"padding:=
+ 0 5%">
+          <table width=3D"100%" border=3D"1px solid black" cellspacing=3D"0=
+" cellpadding=3D"0" class=3D"em_btn_w btnCTA" style=3D"padding: 2% 0">
+              <!--
+  Template for each friend row rendered in unread messages reminder emails.=
+ We have this outside of the main template
+  because the number of rows that we show in the email template are dynamic=
+.
+ -->
+<tr style=3D"border: none; height: 80px">
+  <td style=3D"border: none" align=3D"center" width=3D"33%">
+    <img src=3D"https://images.bitmoji.com/render/panel/10226019-9930899106=
+3_23-s5-v1.png?transparent=3D1&palette=3D1" width=3D"45" border=3D"0" style=
+=3D"display:block; max-width:45px; height: auto;" alt=3D"" />
+  </td>
+  <td style=3D"border: none"  dir=3D"ltr" align=3D"center" width=3D"33%">
+    <a style=3D"cursor: pointer; border: none; font-size: 16px !important; =
+text-decoration: none" href=3D"https://click.snapchat.com/aVHG?ref=3Dunread=
+_messages_reminder_v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_w=
+eb_dp=3Dhttps%3A%2F%2Fwww.snapchat.com%2Fweb%2F622493a5-99a3-55f0-bbb5-dd62=
+d849c93f">Toru...=E2=9D=A4</a>
+  </td>
+  <td style=3D"border: none" dir=3D"ltr" align=3D"center" width=3D"33%">
+    <a
+        class=3D"CTAfontDark"
+        style=3D"
+        border: 0;
+        background-color: #fffc00 !important;
+        padding: 10px;
+        font-size: 12px;
+        font-weight:900;
+        min-width: 95px;
+        display: table-cell;
+        cursor:pointer !important;
+        border-radius:50px;
+        font-family:'Avenir', Helvetica, Roboto, Arial, sans-serif;
+        color: #000000;
+        vertical-align: middle;
+        text-decoration: none"
+            href=3D"https://click.snapchat.com/aVHG?ref=3Dunread_messages_r=
+eminder_v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_web_dp=3Dhtt=
+ps%3A%2F%2Fwww.snapchat.com%2Fweb%2F622493a5-99a3-55f0-bbb5-dd62d849c93f"
+    >
+      VIEW CHAT
+    </a>
+  </td>
+</tr>
+<!--
+  Template for each friend row rendered in unread messages reminder emails.=
+ We have this outside of the main template
+  because the number of rows that we show in the email template are dynamic=
+.
+ -->
+<tr style=3D"border: none; height: 80px">
+  <td style=3D"border: none" align=3D"center" width=3D"33%">
+    <img src=3D"https://images.bitmoji.com/render/panel/30395157-9913332871=
+0_18-s5-v1.png?transparent=3D1&palette=3D1" width=3D"45" border=3D"0" style=
+=3D"display:block; max-width:45px; height: auto;" alt=3D"" />
+  </td>
+  <td style=3D"border: none"  dir=3D"ltr" align=3D"center" width=3D"33%">
+    <a style=3D"cursor: pointer; border: none; font-size: 16px !important; =
+text-decoration: none" href=3D"https://click.snapchat.com/aVHG?ref=3Dunread=
+_messages_reminder_v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_w=
+eb_dp=3Dhttps%3A%2F%2Fwww.snapchat.com%2Fweb%2F5fd0d6c7-0c7e-51e1-9a69-4f8e=
+3abe5cd5">Shrutijay=F0=9F=A7=8B</a>
+  </td>
+  <td style=3D"border: none" dir=3D"ltr" align=3D"center" width=3D"33%">
+    <a
+        class=3D"CTAfontDark"
+        style=3D"
+        border: 0;
+        background-color: #fffc00 !important;
+        padding: 10px;
+        font-size: 12px;
+        font-weight:900;
+        min-width: 95px;
+        display: table-cell;
+        cursor:pointer !important;
+        border-radius:50px;
+        font-family:'Avenir', Helvetica, Roboto, Arial, sans-serif;
+        color: #000000;
+        vertical-align: middle;
+        text-decoration: none"
+            href=3D"https://click.snapchat.com/aVHG?ref=3Dunread_messages_r=
+eminder_v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_web_dp=3Dhtt=
+ps%3A%2F%2Fwww.snapchat.com%2Fweb%2F5fd0d6c7-0c7e-51e1-9a69-4f8e3abe5cd5"
+    >
+      VIEW CHAT
+    </a>
+  </td>
+</tr>
+<!--
+  Template for each friend row rendered in unread messages reminder emails.=
+ We have this outside of the main template
+  because the number of rows that we show in the email template are dynamic=
+.
+ -->
+<tr style=3D"border: none; height: 80px">
+  <td style=3D"border: none" align=3D"center" width=3D"33%">
+    <img src=3D"https://images.bitmoji.com/render/panel/10226021-9960272861=
+5_7-s5-v1.png?transparent=3D1&palette=3D1" width=3D"45" border=3D"0" style=
+=3D"display:block; max-width:45px; height: auto;" alt=3D"" />
+  </td>
+  <td style=3D"border: none"  dir=3D"ltr" align=3D"center" width=3D"33%">
+    <a style=3D"cursor: pointer; border: none; font-size: 16px !important; =
+text-decoration: none" href=3D"https://click.snapchat.com/aVHG?ref=3Dunread=
+_messages_reminder_v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_w=
+eb_dp=3Dhttps%3A%2F%2Fwww.snapchat.com%2Fweb%2F01a02b72-46bc-5557-a3b8-03ff=
+5c83b710">HARSHAVARDANA REDDY</a>
+  </td>
+  <td style=3D"border: none" dir=3D"ltr" align=3D"center" width=3D"33%">
+    <a
+        class=3D"CTAfontDark"
+        style=3D"
+        border: 0;
+        background-color: #fffc00 !important;
+        padding: 10px;
+        font-size: 12px;
+        font-weight:900;
+        min-width: 95px;
+        display: table-cell;
+        cursor:pointer !important;
+        border-radius:50px;
+        font-family:'Avenir', Helvetica, Roboto, Arial, sans-serif;
+        color: #000000;
+        vertical-align: middle;
+        text-decoration: none"
+            href=3D"https://click.snapchat.com/aVHG?ref=3Dunread_messages_r=
+eminder_v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_web_dp=3Dhtt=
+ps%3A%2F%2Fwww.snapchat.com%2Fweb%2F01a02b72-46bc-5557-a3b8-03ff5c83b710"
+    >
+      VIEW CHAT
+    </a>
+  </td>
+</tr>
+
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=3D"3" valign=3D"middle" align=3D"center" height=3D"40" =
+style=3D"padding-top: 10px; font-size: 14px">
+          <span style=3D"color: #000000 !important;">...and more!</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=3D"3" valign=3D"middle" align=3D"center" height=3D"80">
+          <a class=3D"CTAfontDark" style=3D"cursor: pointer !important; bor=
+der: 0; background-color: #000000 !important; padding: 14px 32px; font-size=
+:14px; font-weight:600; border-radius:50px; font-family:'Avenir', Helvetica=
+, Roboto, Arial, sans-serif; color: #F6F6F6 !important; text-decoration: no=
+ne" href=3D"https://click.snapchat.com/aVHG?ref=3Dunread_messages_reminder_=
+v&af_dp=3Dhttps%3A%2F%2Flink.snapchat.com%2Ffeed%2F&af_web_dp=3Dhttps%3A%2F=
+%2Fwww.snapchat.com%2Fweb%2F">View all</a>
+        </td>
+      </tr>
+      <!-- =3D=3D Footer Section =3D=3D -->
+      <td align=3D"center" valign=3D"top" style=3D"padding: 50px 0">
+        <table align=3D"center" width=3D"600" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" class=3D"em_main_table" style=3D"width:600px; ">
+          <tr>
+            <td dir=3D"ltr" width=3D"600" class=3D"blackBG fontDark em_main=
+_table" align=3D"center" valign=3D"top" style=3D"font-family:'Graphik-Regul=
+ar', Arial, sans-serif; font-size:16px;line-height:18px;color:#000000;font-=
+weight:400;"><img style=3D"display:inline-block;vertical-align:text-bottom;=
+max-width:18px; font-size:18px;line-height:20px;" src=3D"https://cf-st.sc-c=
+dn.net/d/dcOe6HaqRhpMpKoDbuADM?bo=3DEg0aABoAMgEESAJQCGAB&uc=3D8" width=3D"1=
+8" height=3D"18" alt=3D"heart icon" border=3D"0" />&nbsp;Team Snapchat </td=
+>
+          </tr>
+        </table>
+      </td>
+    </table></td>
+  </tr>
+  <tr>
+    <td align=3D"center" valign=3D"top"><table align=3D"center" width=3D"60=
+0" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"em_main_table =
+greyBG" style=3D"width:600px; " bgcolor=3D"#F6F6F6">
+      <tr>
+        <td align=3D"center" valign=3D"top"><table align=3D"center" width=
+=3D"600" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"em_main_=
+table" style=3D"width:600px; ">
+          <tr>
+            <td style=3D"height:40px;line-height:0px;font-size:0px;" height=
+=3D"40"></td>
+          </tr>
+          <tr>
+            <td align=3D"center" valign=3D"top" class=3D"em_aside15"><table=
+ width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"c=
+enter">
+              <tr>
+                <td class=3D"em_defaultlink2 fontFooter" align=3D"center" v=
+align=3D"top" style=3D"font-family:'Graphik-Regular', Arial,  sans-serif;fo=
+nt-size:14px;line-height:24px;color:#535353;font-weight:500;">&copy; Snap I=
+nc. 2025 <br />
+                  <a href=3D"https://www.snap.com/terms/" style=3D"color:#5=
+35353;text-decoration:underline;" target=3D"_blank">Terms of Service</a> | =
+<a href=3D"https://www.snap.com/privacy/privacy-policy" style=3D"color:#535=
+353;text-decoration:underline;" target=3D"_blank">Privacy Policy</a> | <a h=
+ref=3D"https://support.snapchat.com/" style=3D"color:#535353;text-decoratio=
+n:underline;" target=3D"_blank">Support</a> <br />
+                  <span class=3D"addressLink" style=3D"text-decoration:none=
+;">3000 31st Street, Santa Monica, CA 90405, USA</span> <br />
+                  <a href=3D"https://subscriptions.snapchat.com/manage?id=
+=3D70f49374-1151-468f-969d-c872acc4d390&incremental=3Dtrue" style=3D"color:=
+#535353;text-decoration:underline;" target=3D"_blank"> Unsubscribe </a></td=
+>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td class=3D"em_hide" style=3D"line-height:1px;min-width:612px;=
+"><img alt=3D"spacer" src=3D"https://bolt-gcdn.sc-cdn.net/3/04shUvScqa6szDo=
+vgKKKb?bo=3DEg0aABoAMgF9SAJQCGAB&uc=3D8" height=3D"1" width=3D"612" style=
+=3D"max-height:1px; min-height:1px; display:block; width:612px; min-width:6=
+12px;" border=3D"0" /></td>
+          </tr>
+          <tr>
+            <td style=3D"height:40px;line-height:0px;font-size:0px;" height=
+=3D"40"></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<!-- =3D=3D //Header Section =3D=3D -->
+
+<img src=3D"https://u5086036.ct.sendgrid.net/wf/open?upn=3Du001.aMo3P6CMEj6=
+JVwkjHlc-2FXLmEG7oy-2F99cFDp0HU38er1sWwNxgyf1OWLZa-2B9bAdYznNmYDSwxESvTusvN=
+ltZkVdTY90-2B-2FjAUdTInERTr0W3RrfiLTgHpfV1z6im9MHB726rRYtnTVIMMimUH6LS-2B84=
+i0Eq2B5DOnmcuvOI4CVdXSYe3yQyFH0gM3VSBXq1stLx3vThF8qSqPrcdFRMv4ZMg8erj7KH2H6=
+PLpSst9sVqcii8fnUs4UrL-2Fa5FxZbsseAgpvqK60D7fRQklGoxYxz32SxBc4k4uLeF0KxXC7C=
+Ktqw1ucIvDuhvM8JEdLkLu6NXSbpf5rDVnaxdqMLUxMzYN7c8T-2BMe7yAZSA5yn9rxfdHDd52O=
+hI7Yd45VkeXdCCRlCFyfOf8CHJPSVINDl-2FT8g0IrhPEC7K22gOjv0JOXc-3D" alt=3D"" wi=
+dth=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1p=
+x !important;border-width:0 !important;margin-top:0 !important;margin-botto=
+m:0 !important;margin-right:0 !important;margin-left:0 !important;padding-t=
+op:0 !important;padding-bottom:0 !important;padding-right:0 !important;padd=
+ing-left:0 !important;"/></body>
+</html>
