@@ -1,32 +1,27 @@
 # termpaper
 
-> Python-based term paper and document automation tool
+> A command-line checker for SPF, DKIM, and DMARC alignment in an email message.
 
-Built with Python and focused on academic, automation, document, python.
+## Overview
 
-## About this project
+The Python script reads a raw `.eml` file and evaluates sender-domain authentication using the supplied sending IP, envelope sender, and HELO domain. Despite the repository name, the current code is an email-authentication experiment.
 
-This repository is part of **Neeraj Sai's** growing collection of software projects, experiments, and learning builds. It reflects a practical, curious approach to creating useful products and understanding how they work under the hood.
+## What’s in this repo
+
+- Parsing a saved email message
+- SPF lookup and DKIM verification
+- DMARC alignment evaluation and a printed result summary
+
+## Stack
+
+Python, DNS lookups, `dnspython`, `pyspf`, and `dkimpy`.
 
 ## Getting started
 
-Clone the repository and follow the setup instructions for the project's framework or language:
+1. Install the Python packages required by `app.py` in a virtual environment.
+2. Run `python app.py <email_file> <client_ip> <smtp_mail_from> <helo_domain>`; use `-` for an unavailable sender or HELO value.
+3. A sample message file, `email.eml`, is included; supply the sending details relevant to the message you are testing.
 
-```bash
-git clone https://github.com/neerajsait/termpaper.git
-cd termpaper
-```
+## Notes
 
-Check the project files for the available run commands and configuration requirements.
-
-## Links
-
-[Repository](https://github.com/neerajsait/termpaper)
-
-## Author
-
-**Tiruveedhi Neeraj Venkata Sai**
-
-- GitHub: [@neerajsait](https://github.com/neerajsait)
-- Portfolio: [neeraj's portfolio](https://github.com/neerajsait/portfoliomain)
-
+The output is diagnostic and depends on correct sender and DNS information. Do not treat a single result as proof that an email is safe or authentic.
